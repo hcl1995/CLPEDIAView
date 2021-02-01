@@ -12,12 +12,12 @@ export class APIClient {
                 res.json().then(result => {
                     Object.keys(result).forEach((e: any) => {
                         const imageArr = new Uint8Array(result[e].image[0].data);
-                        const blob = new Blob([imageArr], { type: 'image/png' });
+                        const blob = new Blob([imageArr], { type: 'image/jpeg' });
                         result[e].image[0] = URL.createObjectURL(blob);
                     });
 
                     // console.log('init: ' + JSON.stringify(result));
-                    callback(result);
+                    callback(result); // NOTE: must return url to stripe
                 });
             })
             .catch(err => {
@@ -41,10 +41,14 @@ export class APIClient {
         }
     }
 
-    public async stripePayment() {
+    public async stripePayment(productID: any) {
         try {
+            const bodyParam = new FormData();
+            bodyParam.append('tf', productID);
+
             const response = await fetch('/stripe_payment', {
-                method: 'POST'
+                method: 'POST',
+                body: bodyParam
             });
             const session = await response.json();
 

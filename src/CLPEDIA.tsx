@@ -215,7 +215,7 @@ class CLPEDIA extends React.Component<IProps, IState> {
     }
 
     renderTattooFlash() {
-        const flashInfo = (imageLink: string, flashName: string, flashPrice: string) => {
+        const flashInfo = (id: string, imageLink: string, flashName: string, flashPrice: string) => {
             return (
                 <div className="col-sm-6 col-md-3 col-lg-3 web">
                     <div className="portfolio-item">
@@ -232,10 +232,10 @@ class CLPEDIA extends React.Component<IProps, IState> {
                     <div
                         style={{ cursor: 'pointer' }}
                         onClick={() => {
-                            CLPEDIAAPIClient.stripePayment();
+                            CLPEDIAAPIClient.stripePayment(id);
                         }}
                     >
-                        <p>Buy Now</p>
+                        <a>Buy Now</a>
                     </div>
                 </div>
             );
@@ -253,21 +253,14 @@ class CLPEDIA extends React.Component<IProps, IState> {
                             </div>
                             <div className="row">
                                 <div className="portfolio-items">
-                                    {/* {Object.keys(this.props.productRawData).map((e: any, i) =>
+                                    {Object.keys(this.props.productRawData).map((e: any, i) =>
                                         flashInfo(
-                                            this.props.productRawData[e].image[0],
+                                            e,
+                                            this.props.productRawData[e].image,
                                             this.props.productRawData[e].name,
                                             this.props.productRawData[e].description
                                         )
-                                    )} */}
-                                    {flashInfo('img/flash/tattoo_flash_01.jpg', 'Maple Story', 'RM500')}
-                                    {flashInfo('img/flash/tattoo_flash_02.jpg', 'Skeleton King', 'RM12,500')}
-                                    {flashInfo('img/flash/tattoo_flash_03.jpg', 'Super Mario', 'RM2,000')}
-                                    {flashInfo('img/flash/tattoo_flash_04.jpg', 'Golden Snitch', 'RM1,250')}
-                                    {flashInfo('img/flash/tattoo_flash_05.jpg', 'Star Path', 'RM600')}
-                                    {flashInfo('img/flash/tattoo_flash_06.jpg', 'Water Breathing Style', 'RM5,000')}
-                                    {flashInfo('img/flash/tattoo_flash_07.jpg', 'Valkyrie', 'RM7,500')}
-                                    {flashInfo('img/flash/tattoo_flash_08.jpg', 'The Enchanted Rose', 'RM1,000')}
+                                    )}
                                 </div>
                             </div>
                         </div>
