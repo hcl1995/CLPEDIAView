@@ -11,7 +11,6 @@ export class APIClient {
             .then(res => {
                 res.json().then(result => {
                     Object.keys(result).forEach((e: any) => {
-                        console.log('bruh: ' + result[e].image[0]);
                         const imageArr = new Uint8Array(result[e].image[0].data);
                         const blob = new Blob([imageArr], { type: 'image/png' });
                         result[e].image[0] = URL.createObjectURL(blob);
