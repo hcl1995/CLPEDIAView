@@ -1,6 +1,16 @@
 import React from 'react';
 import { CLPEDIAAPIClient } from './APIClient';
 
+import StudioCheerink from '../src/img/studio/cheerink.jpg';
+import StudioOctober from '../src/img/studio/october.jpg';
+import StudioDrInk from '../src/img/studio/drink.jpg';
+import StudioInktime from '../src/img/studio/inktime.jpg';
+
+import ArtistKcam from '../src/img/artist/kcam.jpg';
+import ArtistYee from '../src/img/artist/yee.jpg';
+import ArtistRui from '../src/img/artist/rui.jpg';
+import ArtistRaice from '../src/img/artist/raice.jpg';
+
 interface IState {}
 interface IProps {
     productRawData: any;
@@ -123,25 +133,25 @@ class CLPEDIA extends React.Component<IProps, IState> {
                             </div>
                             <div className="row">
                                 {studioInfo(
-                                    'img/studio/cheerink.jpg',
+                                    StudioCheerink,
                                     'Cheer Ink Tattoo Studio',
                                     'https://www.facebook.com/cheerinktattoo/',
                                     'https://www.instagram.com/cheerinktattoo/'
                                 )}
                                 {studioInfo(
-                                    'img/studio/october.jpg',
+                                    StudioOctober,
                                     'October Tattoo Studio',
                                     'https://www.facebook.com/octobertattoostudio/',
                                     'https://www.instagram.com/october.tattoo/'
                                 )}
                                 {studioInfo(
-                                    'img/studio/drink.jpg',
+                                    StudioDrInk,
                                     'Dr.Ink Tattoo Studio',
                                     'https://www.facebook.com/thedrinktattoobar/',
                                     'https://www.instagram.com/dr.inktattoostudio/'
                                 )}
                                 {studioInfo(
-                                    'img/studio/inktime.jpg',
+                                    StudioInktime,
                                     'Inktime Tattoo Studio',
                                     'https://www.facebook.com/inktimestudio/',
                                     'https://www.instagram.com/inktime_studio/'
@@ -184,25 +194,25 @@ class CLPEDIA extends React.Component<IProps, IState> {
                             <div className="row">
                                 {artistInfo(
                                     'https://www.instagram.com/kcamlow_tattoo/',
-                                    'img/artist/kcam.jpg',
+                                    ArtistKcam,
                                     'Kcam',
                                     'Cheer Ink Tattoo Studio'
                                 )}
                                 {artistInfo(
                                     'https://www.instagram.com/yee_tattooist/',
-                                    'img/artist/yee.jpg',
+                                    ArtistYee,
                                     'Yee',
                                     'October Tattoo Studio'
                                 )}
                                 {artistInfo(
                                     'https://www.instagram.com/rui_tattooist/',
-                                    'img/artist/rui.jpg',
+                                    ArtistRui,
                                     'Rui',
                                     'Dr.Ink Tattoo Studio'
                                 )}
                                 {artistInfo(
                                     'https://www.instagram.com/tattooist_raice/',
-                                    'img/artist/raice.jpg',
+                                    ArtistRaice,
                                     'Raice',
                                     'Inktime Tattoo Studio'
                                 )}
